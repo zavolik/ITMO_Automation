@@ -48,4 +48,4 @@ list_5([5, -8, 0, 9, 8])
 #6 Дни в месяцах и годах; принять, что в 1 месяце 29 дней
 def days(years:int, months:int):
     return print("За",years, 'лет и', months, 'месяцев/а прошло',years*12*29 + months*29, 'дней/дня')
-days(12,4)
+days(12,9)
