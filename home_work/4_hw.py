@@ -75,3 +75,36 @@ class Button:
         self.text = text
         self.type = type
         self.loc = loc
+
+    def click(self):
+        print('Клик по кнопке', self.text)
+
+button_1 = Button('Text Box', 'button')
+button_2 = Button('Check Box', 'button')
+button_3 = Button('Radio Button', 'button')
+button_4 = Button('Web Tables', 'button')
+button_5 = Button('Buttons', 'button')
+button_6 = Button('Links', 'button')
+button_7 = Button('Broken Links - Images', 'button')
+button_8 = Button('Upload and Download', 'button')
+button_9 = Button('Dynamic Properties', 'button')
+
+print(button_1.text)
+print(button_2.text)
+print(button_3.text)
+print(button_4.text)
+print(button_5.text)
+print(button_6.text)
+print(button_7.text)
+print(button_8.text)
+print(button_9.text)
+
+button_1.click()
+button_2.click()
+button_3.click()
+button_4.click()
+button_5.click()
+button_6.click()
+button_7.click()
+button_8.click()
+button_9.click()
