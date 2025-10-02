@@ -7,35 +7,73 @@
 # Пятый — присвоение автомобилю цвета.
 # 4
 class Car:
-    def __init__(self, color, type, year):
-        self.color = color
-        self.type = type
+    def __init__(self):
+        self.color = ""
+        self.bodyType = ""
+        self.year = ""
+        self.engWorks = False # изначально авто заглушен
+        self.fuelRemaining = 20 # в баке уже 20 литров
+        self.odometer = 0
+        self.maxFuel = 40 # максимальный объем топливного бака
+
+    def refill(self, fuel_quantity):
+        if self.maxFuel >= self.fuelRemaining + fuel_quantity:
+            self.fuelRemaining = self.fuelRemaining + fuel_quantity
+        else:
+            print('Вы не можете залить бензина больше, чем позволяет топливный бак')
+
+    def addTrip(self, distance, consumption):
+        if self.engWorks:
+            fuel_consumption = distance / 100 * consumption
+            if fuel_consumption <= self.fuelRemaining:
+                self.odometer = self.odometer + distance
+                self.fuelRemaining = self.fuelRemaining - fuel_consumption
+                print(f'Машина проеахала {distance} км')
+            else:
+                print('Бензина не хватит, поездка невозможна')
+        else:
+            print('Автомобиль не заведен. Поездка невозможна')
+
+    def dashboardInfo(self):
+        print(f'На одометре: {self.odometer} км')
+        print(f'Остаток в баке: {self.fuelRemaining} л')
+        if self.engWorks:
+            print('Двигатель заведен')
+        else:
+            print('Двигатель заглушен')
+
+    def startStopEng(self):
+        if self.engWorks:
+            self.engWorks = False
+            print('Автомобиль заглушен')
+        else:
+            self.engWorks = True
+            print('Автомобиль заведен')
+
+    def setYear(self, year):
         self.year = year
-
-    def start(self):
-        print('Автомобиль заведен')
-    def stop(self):
-        print('Автомобиль заглушен')
-
-    def set_year(self, year):
         print(f'Год выпуска установлен: {self.year}')
-        self.year = year
 
-    def set_type(self, type):
-        print(f'Тип автомобиля установлен: {self.type}')
-        self.type = type
 
-    def set_color(self, color):
-        print(f'Цвет автомобиля установлен: {self.color}')
+    def setType(self, body_type):
+        self.bodyType = body_type
+        print(f'Тип автомобиля установлен: {self.bodyType}')
+
+
+    def setColor(self, color):
         self.color = color
+        print(f'Цвет автомобиля установлен: {self.color}')
 
-my_car = Car('black','Седан','2012')
 
-my_car.start()
-my_car.set_color('white')
-my_car.set_year('2020')
-my_car.set_type('хэтчбэк')
-my_car.stop()
 
-print(my_car.year, my_car.type, my_car.color) # обновились данные
+my_car = Car()
 
+my_car.startStopEng()
+my_car.setColor('white')
+my_car.setYear('2020')
+my_car.setType('хэтчбэк')
+my_car.startStopEng()
+my_car.startStopEng()
+my_car.addTrip(200, 8)
+
+my_car.refill(100)

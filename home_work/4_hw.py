@@ -11,24 +11,24 @@ class Rectangle:
         self.width = width
         self.height = height
 
-    def S(self):
+    def Square(self):
         print('Площадь равна', self.width * self.height)
 
-    def P(self):
+    def Perimeter(self):
         print('Периметр равен', 2 * (self.width + self.height))
 
 
-variant1 = Rectangle(100, 100)
-variant1.S()
-variant1.P()
+figure_1 = Rectangle(100, 100)
+figure_1.Square()
+figure_1.Perimeter()
 
-variant2 = Rectangle(30, 100)
-variant2.P()
-variant2.S()
+figure_2 = Rectangle(30, 100)
+figure_2.Square()
+figure_2.Perimeter()
 
-variant3 = Rectangle(100, 130)
-variant3.P()
-variant3.S()
+figure_3 = Rectangle(100, 130)
+figure_3.Square()
+figure_3.Perimeter()
 
 
 #2
@@ -51,11 +51,11 @@ class Math:
     def subtraction(self):
         print(self.a - self.b)
 
-new1 = Math(4,9)
-new1.addition()
-new1.division()
-new1.multiplication()
-new1.subtraction()
+example_1 = Math(4,9)
+example_1.addition()
+example_1.division()
+example_1.multiplication()
+example_1.subtraction()
 
 #3
 # откройте страницу https://demoqa.com/text-box
